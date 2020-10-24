@@ -1,0 +1,17 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "settings": {
+    "import/extensions": [".js", ".ts"],
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts"]
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".ts", ".d.ts"]
+      },
+      "typescript": {}
+    }
+  },
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["@typescript-eslint", "import"]
+}

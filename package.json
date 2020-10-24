@@ -1,0 +1,33 @@
+{
+  "name": "swarm-checked-in",
+  "version": "1.0.0",
+  "description": "Swarm checked-in",
+  "main": "index.ts",
+  "repository": "git@github.com:ipiranhaa/swarm-checked-in.git",
+  "keywords": [
+    "swarm",
+    "check-in"
+  ],
+  "author": "ipiranhaa <tanatezp@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest --config=jest.config.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/jest": "^26.0.13",
+    "@typescript-eslint/eslint-plugin": "^4.0.1",
+    "@typescript-eslint/parser": "^4.0.1",
+    "eslint": "^7.8.1",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^24.0.0",
+    "jest": "^26.4.2",
+    "prettier": "^2.1.1",
+    "typescript": "^4.0.2"
+  }
+}
