@@ -9,12 +9,16 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
+    "preserveConstEnums": true,
     "strict": true,
     "isolatedModules": true,
     "resolveJsonModule": true,
     "allowJs": false,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["dom", "dom.iterable", "esnext", "es2017"],
+    "moduleResolution": "node",
+    "jsx": "preserve"
   },
-  "include": ["**/*.ts", "**/*.js"],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js"],
   "exclude": ["node_modules"]
 }
