@@ -1,8 +1,3 @@
-const fs = require('fs')
-const axios = require('axios')
-
-const credential = require('./credential')
-
 interface CreatedBy {
   id: string
   firstName: string
@@ -53,7 +48,7 @@ interface Venue {
   categories: Category[]
 }
 
-interface Item {
+export interface Item {
   id: string
   createAt: number
   type: string
@@ -83,7 +78,7 @@ interface Item {
   }
 }
 
-interface ResponseJson {
+export interface ResponseJson {
   meta: {
     code: number
     requestId: string
@@ -101,40 +96,3 @@ interface ResponseJson {
     }
   }
 }
-
-const settings = {
-  token: credential.OAUTH_TOKEN,
-  v: '20190425',
-  limit: 250,
-}
-
-const getCheckedIn = (offset: number) => {
-  return new Promise<{
-    items: Item[]
-    count: number
-  }>((resolve, reject) => {
-    const url = `https://api.foursquare.com/v2/users/self/checkins?oauth_token=${settings.token}&v=${settings.v}&offset=${offset}&limit=${settings.limit}`
-    axios
-      .get(url)
-      .then((res: { data: ResponseJson }) => {
-        const { checkins } = res.data.response
-        resolve({ items: checkins.items, count: checkins.count })
-      })
-      .catch((error: string) => {
-        console.error(error)
-        reject(error)
-      })
-  })
-}
-
-const main = async () => {
-  try {
-    const { items, count } = await getCheckedIn(0)
-    console.log({ items })
-    console.log({ count })
-  } catch (error) {
-    console.error(error)
-  }
-}
-
-main()
