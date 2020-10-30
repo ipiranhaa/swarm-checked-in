@@ -50,7 +50,7 @@ interface Venue {
 
 export interface Item {
   id: string
-  createAt: number
+  createdAt: number
   type: string
   timeZoneOffset: number
   createdBy: CreatedBy
