@@ -86,7 +86,8 @@ const Navigator = styled.div`
 const MenuList = styled.ul`
   list-style-type: none;
   height: 40px;
-  tex li {
+
+  li {
     float: left;
     padding: 0 8px;
   }
