@@ -9,4 +9,20 @@ const getThailandProvinces = (items: Item[]) =>
     return list
   }, [])
 
+export const getThailandProvinceKeywords = (items: Item[]) => {
+  const filteredProvinces = getThailandProvinces(items)
+
+  const enKeywordList: string[] = []
+  const thKeywordList: string[] = []
+  filteredProvinces.forEach((province) => {
+    if (/[a-z]/.test(province)) {
+      enKeywordList.push(province)
+    } else {
+      thKeywordList.push(province)
+    }
+  })
+
+  return [enKeywordList, thKeywordList]
+}
+
 export default getThailandProvinces

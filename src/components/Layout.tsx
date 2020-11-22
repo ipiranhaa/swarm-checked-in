@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
+import Link from 'next/link'
 
 const FontLoader = styled.span`
   /* thai */
@@ -75,7 +76,28 @@ const FontLoader = styled.span`
 `
 
 const Container = styled.div`
-  padding: 4vh 2vw;
+  padding: 2vh 2vw;
+`
+
+const Navigator = styled.div`
+  text-align: center;
+`
+
+const MenuList = styled.ul`
+  list-style-type: none;
+  height: 40px;
+  tex li {
+    float: left;
+    padding: 0 8px;
+  }
+
+  li:not(:last-child) {
+    border-right: 1px solid #95a5a6;
+  }
+
+  li a {
+    text-decoration: none;
+  }
 `
 
 const Layout = (props: { children: ReactElement }) => {
@@ -84,6 +106,25 @@ const Layout = (props: { children: ReactElement }) => {
   return (
     <FontLoader>
       <Container>{children}</Container>
+      <Navigator>
+        <MenuList>
+          <li>
+            <Link href="/">
+              <a>Home</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/geography">
+              <a>Geography</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/all">
+              <a>All checked-In</a>
+            </Link>
+          </li>
+        </MenuList>
+      </Navigator>
     </FontLoader>
   )
 }
