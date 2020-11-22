@@ -24,6 +24,11 @@ interface Province {
   id: number
   en: string
   th: string
+  geography: {
+    id: number
+    en: string
+    th: string
+  }
 }
 
 interface Props {

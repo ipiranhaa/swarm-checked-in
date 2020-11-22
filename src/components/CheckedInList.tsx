@@ -25,6 +25,13 @@ interface Props {
 
 function CheckinList(props: Props) {
   const { items } = props
+
+  const getDatetime = (unixTimestamp: number) => {
+    const date = new Date(unixTimestamp * 1000)
+
+    return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`
+  }
+
   return (
     <Table>
       <thead>
@@ -42,7 +49,7 @@ function CheckinList(props: Props) {
           const { city, state, country } = location
           return (
             <tr key={item.id}>
-              <td>{item.createdAt}</td>
+              <td>{getDatetime(item.createdAt)}</td>
               <td>{name}</td>
               <td>{city}</td>
               <td>{state}</td>
