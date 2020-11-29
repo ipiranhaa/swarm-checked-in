@@ -5,7 +5,7 @@ name: Build and Deploy CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, gh_pages]
   pull_request:
     branches: [main]
   schedule:
@@ -31,19 +31,25 @@ jobs:
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Setup yarn
+        run: npm install -g yarn
 
       - name: Prepare dependencies
-        run: npm ci && npm run sync
+        run: |
+          yarn
+          yarn sync
         env:
           SWARM_OAUTH_TOKEN: ${{ secrets.SWARM_OAUTH_TOKEN }}
 
-      - run: npm run build
+      - name: Build
+        run: |
+          yarn build
+          yarn export
         env:
           NEXT_PUBLIC_BASE_PATH: /swarm-checked-in
-      - run: npm run export
-        env:
-          NEXT_PUBLIC_BASE_PATH: /swarm-checked-in
+
       - run: touch ./out/.nojekyll
 
       - name: Deploy 🚀
