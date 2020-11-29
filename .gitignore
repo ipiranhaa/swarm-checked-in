@@ -103,4 +103,7 @@ dist
 # TernJS port file
 .tern-port
 
+# Next.js output
+out
+
 src/db/sync-checkins
