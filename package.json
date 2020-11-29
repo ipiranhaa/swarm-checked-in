@@ -15,7 +15,7 @@
     "sync": "ts-node src/db/sync.ts",
     "dev": "next dev",
     "build": "next build",
-    "deploy": "next build && next export",
+    "bundle": "next build && next export",
     "start": "next start"
   },
   "dependencies": {

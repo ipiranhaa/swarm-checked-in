@@ -44,9 +44,7 @@ jobs:
           SWARM_OAUTH_TOKEN: ${{ secrets.SWARM_OAUTH_TOKEN }}
 
       - name: Build
-        run: |
-          yarn build
-          yarn export
+        run: yarn bundle
         env:
           NEXT_PUBLIC_BASE_PATH: /swarm-checked-in
 
